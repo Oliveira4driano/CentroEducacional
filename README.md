@@ -23,6 +23,8 @@ executar as procedores na ordem
 8-aluno.sql
 
 de dois clique no arquivo Escolinha.jar que se encontra na área de trabalho, o usuário e senha de acesso é o usuario criado no mysql.
-
+Tela de login
 ![image](https://user-images.githubusercontent.com/33138839/97397715-4ed06600-18c0-11eb-82ba-d1a86c01052d.png)
 
+Tela principal
+![image](https://user-images.githubusercontent.com/33138839/97397876-9e169680-18c0-11eb-8773-31e16deaba94.png)
