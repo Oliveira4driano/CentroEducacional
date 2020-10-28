@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioEscolinha" pageWidth="595" pageHeight="49" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d0fa32ec-bf8d-4e57-965a-4007e4cd6685">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MatriculaAluno" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select mae.resnome, mae.reslocaltrabalho, mae.resprofissao, mae.resfonetrabalho, fmae.fontelefone
+		from responsavel mae
+			inner join fone fmae on fmae.fon_rescodigo = mae.rescodigo
+			inner join endereco on endcodigo = mae.res_endcodigo
+			where  mae.res_endcodigo in (select  alucodigo
+											from aluno
+												 where alucodigo =mae.res_endcodigo
+													and mae.resgrauparentesco="Pai"
+                                                    and alumatricula =  $P{MatriculaAluno})]]>
+	</queryString>
+	<field name="resnome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="reslocaltrabalho" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="resprofissao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="resfonetrabalho" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fontelefone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement x="95" y="3" width="305" height="20" uuid="64877783-6c0f-4d2e-9100-249f647e1304"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resnome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="121" y="24" width="116" height="20" uuid="0cc3b02f-3c76-4f22-a4d5-650259bbe7e2"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reslocaltrabalho}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="482" y="24" width="114" height="20" uuid="5dc6ccea-e49d-45ca-a625-31ec0d07d814"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resfonetrabalho}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="297" y="24" width="93" height="17" uuid="dffee943-dd6d-4c75-a5af-ca7b5a1daf55"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resprofissao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="461" y="4" width="90" height="20" uuid="8af6f6c8-c708-470d-9a42-bcd5a42a43c8"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fontelefone}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>
