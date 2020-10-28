@@ -10,9 +10,9 @@ create procedure sp_inserirTurma( p_estnome varchar(60) )
 		insert into turma values(turcodigo, p_estnome); 
     end #
 delimiter ;
- Call sp_inserirTurma('Primeira série');
- Call sp_inserirTurma('Segunda série');
- Call sp_inserirTurma('Terceira série');
+-- Call sp_inserirTurma('Primeira série');
+-- Call sp_inserirTurma('Segunda série');
+-- Call sp_inserirTurma('Terceira série');
 
 -- -----------------------------------------------------
 -- Table `turma`.`listar`
